@@ -16,4 +16,10 @@ router.get('/404', (req, res) => {
     res.render('404');
 })
 
+router.get('/search', (req, res) => {
+    const movies = movieService.getAll();
+
+    res.render('search', { movies })
+})
+
 module.exports = router;
