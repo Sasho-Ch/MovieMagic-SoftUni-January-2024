@@ -28,7 +28,8 @@ const castSchema = new mongoose.Schema({
             },
             message: (props) => `${props.value} is invalid url for the castImage`
         }
-    }
+    },
+    
 });
 
 const Cast = mongoose.model('Cast', castSchema);
