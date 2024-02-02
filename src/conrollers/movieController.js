@@ -48,7 +48,12 @@ router.post('/movies/:movieId/attach', async (req, res) => {
 });
 
 router.get('/movies/:movieId/edit', async (req, res) => {
-    
+    console.log(req.user);
+
+    if(!req.user) {
+        return res.redirect('/auth/login');
+    }
+
     const movie = await movieService.getOne(req.params.movieId).lean();
     
     res.render('movie/edit', { movie })
